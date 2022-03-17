@@ -5,16 +5,17 @@
 
 class Ship;
 
-std::ostream& operator << (std::ostream& os, const Ship& ship);
+std::ostream& operator<<(std::ostream& os, const Ship& ship);
 
-class Ship
-{
+class Ship {
 public:
     virtual ~Ship();
+
     /* à compléter */
     virtual std::ostream& toStream(std::ostream& os) const;
 
 private:
     /* à compléter */
 };
+
 #endif /* SHIP_H */
