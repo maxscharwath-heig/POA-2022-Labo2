@@ -6,7 +6,7 @@
 #define POA___LABO_2_STARDESTROYER_HPP
 
 
-#include "Ship.h"
+#include "Ship.hpp"
 
 class StarDestroyer: public Ship {
 

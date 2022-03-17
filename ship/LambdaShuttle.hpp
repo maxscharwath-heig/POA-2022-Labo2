@@ -6,7 +6,7 @@
 #define POA___LABO_2_LAMBDASHUTTLE_HPP
 
 
-#include "Ship.h"
+#include "Ship.hpp"
 
 class LambdaShuttle: public Ship {
 

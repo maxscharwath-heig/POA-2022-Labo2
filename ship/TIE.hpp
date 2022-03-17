@@ -6,7 +6,7 @@
 #define POA___LABO_2_TIE_HPP
 
 
-#include "Ship.h"
+#include "Ship.hpp"
 
 class TIE: public Ship {
 
