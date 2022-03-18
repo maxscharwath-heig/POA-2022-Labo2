@@ -1,42 +1,42 @@
 #include "Squadron.hpp"
 
 void Squadron::setLeader(const Ship& ship) {
- //todo
+    if (!ships.contains(&ship)) {
+        ships.add(&ship);
+    }
+    leader = &ship;
 }
 
-Ship& Squadron::operator[](size_t i) {
-    //todo
+const Ship& Squadron::operator[](int i) {
+    return *ships[i];
 }
 
 Squadron& Squadron::operator+=(const Ship& ship) {
-    Ship* tempArr = new Ship[size + 1];
-    for (size_t i = 0; i < size; ++i) {
-        tempArr[i] = ships[i];
-    }
-    tempArr[size] = ship;
-    delete[] ships;
-    ships = tempArr;
+    ships.add(&ship);
 }
 
 Squadron& Squadron::operator-=(const Ship& ship) {
-    Ship* tempArr = new Ship[size - 1];
-    for (size_t i = 0; i < size; ++i) {
-        if (ships[i] != ship) {
-            tempArr[i] = ships[i];
+    if (ships.remove(&ship)) {
+        //if correctly removed, check if leader is removed
+        if (leader == &ship) {
+            leader = nullptr;
         }
     }
-    delete[] ships;
-    ships = tempArr;
 }
 
-Squadron operator+(const Squadron& lhs, const Squadron& rhs) {
-    //todo
+Squadron operator+(const Squadron& lhs, const Ship& rhs) {
+    Squadron result = lhs;
+    result += rhs;
+    return result;
 }
 
-Squadron operator-(const Squadron& lhs, const Squadron& rhs) {
-    //todo
+Squadron operator-(const Squadron& lhs, const Ship& rhs) {
+    Squadron result = lhs;
+    result -= rhs;
+    return result;
 }
 
 std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
     //todo
+    return os;
 }

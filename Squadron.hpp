@@ -3,25 +3,26 @@
 
 #include <string>
 #include "ship/Ship.hpp"
+#include "utility/LinkedList.hpp"
 
 class Squadron;
 
-Squadron operator+(const Squadron& lhs, const Squadron& rhs);
-Squadron operator-(const Squadron& lhs, const Squadron& rhs);
+Squadron operator+(const Squadron& lhs, const Ship& rhs);
+Squadron operator-(const Squadron& lhs, const Ship& rhs);
 std::ostream& operator<<(std::ostream& os, const Squadron& squadron);
 
 class Squadron {
 
 public:
+    Squadron(const std::string&  name);
     void setLeader(const Ship& ship);
-    Ship& operator[](size_t i);
+    const Ship& operator[](int i);
     Squadron& operator+=(const Ship& ship);
     Squadron& operator-=(const Ship& ship);
 private:
     const std::string name;
-    Ship* ships;
-    size_t size;
-    Ship* leader; // can be nullptr
+    LinkedList<const Ship*> ships;
+    const Ship* leader; // can be nullptr
 };
 
 
