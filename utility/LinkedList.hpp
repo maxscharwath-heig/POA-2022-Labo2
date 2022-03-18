@@ -12,12 +12,6 @@ class LinkedList;
 
 template<typename T>
 class LinkedList {
-private :
-    struct Node {
-        T value;
-        Node* next;
-    };
-    Node* head;
 public:
     LinkedList<T>();
 
@@ -31,18 +25,30 @@ public:
 
     void clear();
 
+    T operator[](int i);
+
     T get(int index);
 
     friend std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list) {
         Node* current = list.head;
         os << "[";
         while (current != nullptr) {
-            os << current->value << " ";
+            if(current->next != nullptr) {
+                os << current->value << ", ";
+            } else {
+                os << current->value;
+            }
             current = current->next;
         }
         os << "]";
         return os;
     }
+private :
+    struct Node {
+        T value;
+        Node* next;
+    };
+    Node* head;
 };
 
 #endif //POA___LABO_2_LINKEDLIST_HPP

@@ -87,3 +87,8 @@ void LinkedList<T>::clear() {
         delete current;
     }
 }
+
+template<typename T>
+T LinkedList<T>::operator[](int  i) {
+    return get(i);
+}

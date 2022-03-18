@@ -14,6 +14,9 @@ int main() {
         list.add(2);
         list.add(3);
         cout << list << endl;
+        cout << "list[0] = " << list[0] << endl;
+        cout << "list[1] = " << list[1] << endl;
+        cout << "list[2] = " << list[2] << endl;
         list.remove(2);
         cout << list << endl;
         list.remove(1);
@@ -38,6 +41,9 @@ int main() {
         list.add("World");
         list.add("!");
         cout << list << endl;
+        cout << "list[0] = " << list[0] << endl;
+        cout << "list[1] = " << list[1] << endl;
+        cout << "list[2] = " << list[2] << endl;
         list.remove("World");
         cout << list << endl;
         list.remove("Hello");
@@ -71,6 +77,9 @@ int main() {
         list.add(t2);
         list.add(t3);
         cout << list << endl;
+        cout << "list[0] = " << list[0] << endl;
+        cout << "list[1] = " << list[1] << endl;
+        cout << "list[2] = " << list[2] << endl;
         cout << "Has " << t1 << ": " << (list.contains(t1) ? "True" : "False")
              << endl;
         cout << "Has " << t2 << ": " << (list.contains(t2) ? "True" : "False")
