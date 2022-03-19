@@ -22,4 +22,10 @@ std::ostream &Ship::toStream(std::ostream &os) const {
     return os;
 }
 
+unsigned Ship::getSpeed() const {
+    return speed;
+}
 
+unsigned long long Ship::getWeight() const {
+    return weigth;
+}

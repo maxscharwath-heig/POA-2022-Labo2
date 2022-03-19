@@ -2,7 +2,7 @@
 #define POA___LABO_2_SQUADRON_HPP
 
 #include <string>
-#include "utility/LinkedList.hpp"
+#include "utility/LinkedList.cpp"
 #include "ship/Ship.hpp"
 
 class Squadron;
@@ -30,9 +30,9 @@ private:
     const std::string name;
     LinkedList<const Ship*> members;
     const Ship* leader; // can be nullptr
-    double getMaxSpeed() const;
+    unsigned getMaxSpeed() const;
 
-    double getTotalWeight() const;
+    unsigned long long getTotalWeight() const;
 };
 
 Squadron operator+(const Squadron& lhs, const Ship& rhs);

@@ -34,8 +34,8 @@ int main() {
 
     Squadron squad("Black Squadron");
     squad += blackLeader;
-    //squad += blackTwo;
-    //squad += shuttle;
+    squad += blackLeader2;
+    squad += test2;
     squad.setLeader(blackLeader);
     cout << squad << endl;
 }
