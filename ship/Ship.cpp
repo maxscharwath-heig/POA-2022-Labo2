@@ -16,7 +16,7 @@ std::ostream &Ship::toStream(std::ostream &os) const {
         os << nickName << " ";
     }
 
-    os << "[" << model << "#" << id << "]" << std::endl;
+    os << "[" << model << " #" << id << "]" << std::endl;
     os << "   weigth : " << weigth << "tons" << std::endl;
     os << "   max speed : " << speed << "MGLT" << std::endl;
     return os;

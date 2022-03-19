@@ -12,11 +12,21 @@ int main() {
    StarDestroyer st1(23.0);
    LambdaShuttle lb1(30.0);
 
+   TIELN blackLeader2;
+   TIEIN test2;
+   StarDestroyer st2(33.0);
+   LambdaShuttle lb2(40.0);
+
 
    cout << blackLeader << endl;
    cout << test1 << endl;
    cout << st1 << endl;
    cout << lb1 << endl;
+
+   cout << blackLeader2 << endl;
+   cout << test2 << endl;
+   cout << st2 << endl;
+   cout << lb2 << endl;
 
    //blackLeader.setNickname("Black leader");
    //TIE blackTwo;
