@@ -2,10 +2,17 @@
 #define POA___LABO_2_SQUADRON_HPP
 
 #include <string>
+#include "utility/LinkedList.hpp"
 #include "ship/Ship.hpp"
-#include "utility./LinkedList.cpp"
+
+class Squadron;
+
+//Squadron operator+(const Squadron& lhs, const Ship& rhs);
+//Squadron operator-(const Squadron& lhs, const Ship& rhs);
+//std::ostream& operator<<(std::ostream& os, const Squadron& squadron);
 
 class Squadron {
+
 public:
     explicit Squadron(std::string name);
 

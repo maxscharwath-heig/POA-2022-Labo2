@@ -10,6 +10,9 @@ public:
 
 private:
    static const std::string MODEL;
+   static const unsigned long long WEIGHT;
+   static const unsigned SPEED;
+   static const double MAX_LOAD;
    static unsigned id;
 };
 
