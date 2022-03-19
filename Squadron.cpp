@@ -1,4 +1,5 @@
 #include "Squadron.hpp"
+#include <utility>
 
 void Squadron::setLeader(const Ship& ship) {
     if (!ships.contains(&ship)) {
@@ -13,6 +14,7 @@ const Ship& Squadron::operator[](int i) {
 
 Squadron& Squadron::operator+=(const Ship& ship) {
     ships.add(&ship);
+    return *this;
 }
 
 Squadron& Squadron::operator-=(const Ship& ship) {
@@ -22,6 +24,11 @@ Squadron& Squadron::operator-=(const Ship& ship) {
             leader = nullptr;
         }
     }
+    return *this;
+}
+
+Squadron::Squadron(std::string name): name(std::move(name)) {
+    leader = nullptr;
 }
 
 Squadron operator+(const Squadron& lhs, const Ship& rhs) {

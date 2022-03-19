@@ -2,8 +2,8 @@
 #define POA___LABO_2_SQUADRON_HPP
 
 #include <string>
-#include "ship/Ship.hpp"
 #include "utility/LinkedList.hpp"
+#include "ship/Ship.hpp"
 
 class Squadron;
 
@@ -14,7 +14,8 @@ std::ostream& operator<<(std::ostream& os, const Squadron& squadron);
 class Squadron {
 
 public:
-    Squadron(const std::string&  name);
+    Squadron(std::string  name);
+    ~Squadron();
     void setLeader(const Ship& ship);
     const Ship& operator[](int i);
     Squadron& operator+=(const Ship& ship);

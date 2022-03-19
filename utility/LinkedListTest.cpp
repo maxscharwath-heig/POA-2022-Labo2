@@ -2,7 +2,7 @@
 // Created by Maxime Scharwath on 18.03.2022.
 //
 #include <iostream>
-#include "LinkedList.cpp"
+#include "LinkedList.hpp"
 
 using namespace std;
 
