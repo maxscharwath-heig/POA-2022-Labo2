@@ -3,7 +3,7 @@
 
 #include <string>
 #include "ship/Ship.hpp"
-#include "utility/LinkedList.cpp" //todo: pourquoi cpp et pas hpp?
+#include "utility./LinkedList.cpp"
 
 class Squadron {
 public:
