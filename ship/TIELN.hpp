@@ -1,15 +1,15 @@
-//
-// Created by Maxime Scharwath on 17.03.2022.
-//
-
 #ifndef POA___LABO_2_TIELN_HPP
 #define POA___LABO_2_TIELN_HPP
 
+#include "Ship.hpp"
 
-#include "TIE.hpp"
+class TIELN : public Ship {
+public:
+   TIELN();
 
-class TIELN: public TIE {
-
+private:
+   static const std::string MODEL;
+   static unsigned id;
 };
 
 

@@ -1,9 +1,4 @@
-//
-// Created by Maxime Scharwath on 18.03.2022.
-//
-
 #include "LinkedList.hpp"
-
 
 template<typename T>
 LinkedList<T>::LinkedList() {

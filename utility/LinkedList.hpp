@@ -1,21 +1,14 @@
-//
-// Created by Maxime Scharwath on 18.03.2022.
-//
-
 #ifndef POA___LABO_2_LINKEDLIST_HPP
 #define POA___LABO_2_LINKEDLIST_HPP
 
 #include <ostream>
 
 template<typename T>
-class LinkedList;
-
-template<typename T>
 class LinkedList {
 public:
     LinkedList<T>();
 
-    ~LinkedList<T>();
+    ~LinkedList();
 
     void add(T value);
 

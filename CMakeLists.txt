@@ -9,9 +9,6 @@ add_executable(POA_Labo_2
         Squadron.cpp
         ship/Ship.hpp
         ship/Ship.cpp
-        ship/TIE.hpp
-        ship/TIE.cpp
-        ship/TIE.hpp
         ship/LambdaShuttle.cpp
         ship/LambdaShuttle.hpp
         ship/StarDestroyer.cpp
@@ -22,4 +19,4 @@ add_executable(POA_Labo_2
         ship/TIEIN.hpp
         utility/LinkedList.cpp
         utility/LinkedList.hpp
-        )
+        ship/LoadedShip.cpp ship/LoadedShip.hpp)

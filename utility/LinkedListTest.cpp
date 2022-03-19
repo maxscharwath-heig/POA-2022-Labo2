@@ -1,6 +1,3 @@
-//
-// Created by Maxime Scharwath on 18.03.2022.
-//
 #include <iostream>
 #include "LinkedList.hpp"
 

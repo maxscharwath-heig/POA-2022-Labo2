@@ -1,5 +1,5 @@
-#ifndef SHIP_H
-#define SHIP_H
+#ifndef SHIP_HPP
+#define SHIP_HPP
 
 #include <ostream>
 
@@ -9,13 +9,19 @@ std::ostream& operator<<(std::ostream& os, const Ship& ship);
 
 class Ship {
 public:
-    virtual ~Ship();
-
-    /* à compléter */
     virtual std::ostream& toStream(std::ostream& os) const;
+    void setNickname(const std::string& name);
+    // virtual ~Ship();
+
+protected:
+    Ship (unsigned long long weigth, unsigned speed, const std::string& model, unsigned id);
 
 private:
-    /* à compléter */
+    std::string nickName;
+    const unsigned long long weigth;
+    const unsigned speed;
+    const std::string model;
+    const unsigned id;
 };
 
-#endif /* SHIP_H */
+#endif /* SHIP_HPP */
