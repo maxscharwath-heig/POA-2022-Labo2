@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(POA_Labo_2
         main.cpp
+        utility/LinkedList.cpp
+        utility/LinkedList.hpp
         Squadron.hpp
         Squadron.cpp
         ship/Ship.hpp
@@ -20,6 +22,4 @@ add_executable(POA_Labo_2
         ship/TIELN.hpp
         ship/TIEIN.cpp
         ship/TIEIN.hpp
-        utility/LinkedList.cpp
-        utility/LinkedList.hpp
         )
