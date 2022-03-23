@@ -43,7 +43,7 @@ Squadron operator-(const Squadron& lhs, const Ship& rhs) {
 }
 
 unsigned Squadron::getMaxSpeed() const {
-    unsigned long long maxSpeed = UINT_MAX;
+    unsigned maxSpeed = UINT_MAX;
     auto it = members.getIterator();
     while (it.hasNext()) {
         const Ship& ship = *it.next();

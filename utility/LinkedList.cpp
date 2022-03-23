@@ -1,6 +1,38 @@
 #include "LinkedList.hpp"
 
 template<typename T>
+struct LinkedList<T>::Node {
+    T value;
+    Node* next;
+};
+
+template<typename T>
+class LinkedList<T>::Iterator {
+public:
+    explicit Iterator(Node* head) {
+        this->current = head;
+    }
+
+    bool hasNext() {
+        return current != nullptr;
+    }
+
+    T next() {
+        Node* tmp = current;
+        current = current->next;
+        return tmp->value;
+    }
+
+private:
+    Node* current;
+};
+
+template<typename T>
+typename LinkedList<T>::Iterator LinkedList<T>::getIterator() const {
+    return Iterator(head);
+}
+
+template<typename T>
 LinkedList<T>::LinkedList() {
     head = nullptr;
 }
@@ -84,6 +116,22 @@ void LinkedList<T>::clear() {
 }
 
 template<typename T>
-T LinkedList<T>::operator[](int  i) {
+T LinkedList<T>::operator[](int i) {
     return get(i);
+}
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list) {
+    auto current = list.head;
+    os << "[";
+    while (current != nullptr) {
+        if (current->next != nullptr) {
+            os << current->value << ", ";
+        } else {
+            os << current->value;
+        }
+        current = current->next;
+    }
+    os << "]";
+    return os;
 }

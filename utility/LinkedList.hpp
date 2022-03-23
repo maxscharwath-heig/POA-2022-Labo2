@@ -4,9 +4,20 @@
 #include <ostream>
 
 template<typename T>
+class LinkedList;
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list);
+
+template<typename T>
 class LinkedList {
+private :
+    struct Node;
+
+    class Iterator;
+
 public:
-    LinkedList<T>();
+    LinkedList();
 
     ~LinkedList();
 
@@ -22,52 +33,10 @@ public:
 
     T get(int index);
 
-    friend std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list) {
-        Node* current = list.head;
-        os << "[";
-        while (current != nullptr) {
-            if(current->next != nullptr) {
-                os << current->value << ", ";
-            } else {
-                os << current->value;
-            }
-            current = current->next;
-        }
-        os << "]";
-        return os;
-    }
+    typename LinkedList<T>::Iterator getIterator() const;
 
 private :
-    struct Node {
-        T value;
-        Node* next;
-    };
     Node* head;
-
-    class Iterator {
-    public:
-        explicit Iterator(Node* head) {
-            this->current = head;
-        }
-
-        bool hasNext() {
-            return current != nullptr;
-        }
-
-        T next() {
-            Node* tmp = current;
-            current = current->next;
-            return tmp->value;
-        }
-
-    private:
-        Node* current;
-    };
-
-public:
-    Iterator getIterator() const {
-        return Iterator(head);
-    }
 };
 
 #endif //POA___LABO_2_LINKEDLIST_HPP
