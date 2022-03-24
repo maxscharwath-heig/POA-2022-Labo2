@@ -33,7 +33,7 @@ public:
 
     T get(int index);
 
-    typename LinkedList<T>::Iterator getIterator() const;
+    Iterator getIterator() const;
 
 private :
     Node* head;
