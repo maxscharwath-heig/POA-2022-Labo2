@@ -1,7 +1,5 @@
 #include <iostream>
 #include "ship/TIELN.hpp"
-#include "ship/TIEIN.hpp"
-#include "ship/StarDestroyer.hpp"
 #include "ship/LambdaShuttle.hpp"
 #include "Squadron.hpp"
 #include "Constants.hpp"

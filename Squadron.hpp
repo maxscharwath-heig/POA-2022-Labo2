@@ -7,9 +7,11 @@
 
 class Squadron;
 
-//Squadron operator+(const Squadron& lhs, const Ship& rhs);
-//Squadron operator-(const Squadron& lhs, const Ship& rhs);
-//std::ostream& operator<<(std::ostream& os, const Squadron& squadron);
+Squadron operator+(const Squadron& lhs, const Ship& rhs);
+
+Squadron operator-(const Squadron& lhs, const Ship& rhs);
+
+std::ostream& operator<<(std::ostream& os, const Squadron& squadron);
 
 class Squadron {
 
@@ -41,9 +43,5 @@ private:
 
     const Ship* leader; // can be nullptr
 };
-
-Squadron operator+(const Squadron& lhs, const Ship& rhs);
-
-Squadron operator-(const Squadron& lhs, const Ship& rhs);
 
 #endif //POA___LABO_2_SQUADRON_HPP
