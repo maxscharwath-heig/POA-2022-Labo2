@@ -1,5 +1,6 @@
 #include <iomanip>
 #include "Squadron.hpp"
+#include "Constants.hpp"
 
 void Squadron::setLeader(const Ship& ship) {
     if (!members.contains(&ship)) {
@@ -69,9 +70,9 @@ double Squadron::getTotalWeight() const {
 std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
     os << "Squadron: " << squadron.name << std::endl
        << "   max speed: " << std::fixed << std::setprecision(2)
-       << squadron.getMaxSpeed() << " MGLT" << std::endl
+       << squadron.getMaxSpeed() << " " << UNITS_SPEED << std::endl
        << "   total weight: " << std::fixed << std::setprecision(2)
-       << squadron.getTotalWeight() << " tons" << std::endl
+       << squadron.getTotalWeight() << " " << UNITS_WEIGHT << std::endl
        << std::endl;
     if (squadron.leader == nullptr) {
         os << "-- No leader" << std::endl;

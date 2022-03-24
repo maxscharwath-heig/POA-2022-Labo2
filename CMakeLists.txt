@@ -18,4 +18,4 @@ add_executable(POA_Labo_2
         ship/TIEIN.cpp
         ship/TIEIN.hpp
         utility/LinkedList.cpp utility/LinkedList.hpp
-        ship/LoadedShip.cpp ship/LoadedShip.hpp)
+        ship/LoadedShip.cpp ship/LoadedShip.hpp Constants.hpp)

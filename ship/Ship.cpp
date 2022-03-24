@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <valarray>
 #include "Ship.hpp"
+#include "../Constants.hpp"
 
 Ship::Ship(double weight, unsigned int speed, const std::string& model, unsigned id)
       : weight(weight), speed(speed), model(model), id(id) {}
@@ -20,9 +21,9 @@ std::ostream& Ship::toStream(std::ostream& os) const {
 
     os << "[" << model << " #" << id << "]" << std::endl;
     os << "   weight : " << std::fixed << std::setprecision(2) << getWeight()
-       << " tons" << std::endl;
+       << " " << UNITS_WEIGHT << std::endl;
     os << "   max speed : " << std::fixed << std::setprecision(2) << getSpeed()
-       << " MGLT" << std::endl;
+       << " " << UNITS_SPEED << std::endl;
     return os;
 }
 
