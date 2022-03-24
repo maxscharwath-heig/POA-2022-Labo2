@@ -18,4 +18,9 @@ int main() {
     squad += shuttle;
     squad.setLeader(blackLeader);
     cout << squad << endl;
+
+    unsigned long distance = 1000000;
+    cout << "The consumption for " << distance << " mio. km: is "
+         << squad.getConsumption(squad.getMaxSpeed(), distance)
+         << " tons for a speed of " << squad.getMaxSpeed() << " MGLT" << endl;
 }

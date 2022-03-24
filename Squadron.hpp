@@ -14,9 +14,17 @@ class Squadron;
 class Squadron {
 
 public:
-    explicit Squadron(std::string name);
+    explicit Squadron(const std::string& name);
 
     void setLeader(const Ship& ship);
+
+    void removeLeader();
+
+    double getConsumption(unsigned speedWanted, unsigned long distance) const;
+
+    unsigned getMaxSpeed() const;
+
+    double getTotalWeight() const;
 
     const Ship& operator[](int i);
 
@@ -32,10 +40,6 @@ private:
     LinkedList<const Ship*> members;
 
     const Ship* leader; // can be nullptr
-
-    unsigned getMaxSpeed() const;
-
-    double getTotalWeight() const;
 };
 
 Squadron operator+(const Squadron& lhs, const Ship& rhs);

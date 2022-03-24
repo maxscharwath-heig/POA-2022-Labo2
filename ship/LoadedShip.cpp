@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "LoadedShip.hpp"
 
 LoadedShip::LoadedShip(double weight, unsigned int speed, const std::string& model,
@@ -9,6 +10,9 @@ double LoadedShip::getWeight() const {
 }
 
 std::ostream& LoadedShip::toStream(std::ostream& os) const {
-    return Ship::toStream(os) << "   cargo : " << currentLoad << " tons (max : "
-                              << maxLoad << ")";
+    return Ship::toStream(os) << "   cargo : "
+                              << std::fixed << std::setprecision(2) << currentLoad
+                              << " tons (max : "
+                              << std::fixed << std::setprecision(2) << maxLoad
+                              << ")";
 }

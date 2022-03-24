@@ -1,3 +1,5 @@
+#include <iomanip>
+#include <valarray>
 #include "Ship.hpp"
 
 Ship::Ship(double weight, unsigned int speed, const std::string& model, unsigned id)
@@ -17,8 +19,10 @@ std::ostream& Ship::toStream(std::ostream& os) const {
     }
 
     os << "[" << model << " #" << id << "]" << std::endl;
-    os << "   weight : " << getWeight() << " tons" << std::endl;
-    os << "   max speed : " << getSpeed() << " MGLT" << std::endl;
+    os << "   weight : " << std::fixed << std::setprecision(2) << getWeight()
+       << " tons" << std::endl;
+    os << "   max speed : " << std::fixed << std::setprecision(2) << getSpeed()
+       << " MGLT" << std::endl;
     return os;
 }
 
@@ -28,4 +32,11 @@ unsigned Ship::getSpeed() const {
 
 double Ship::getWeight() const {
     return weight;
+}
+
+double Ship::getConsumption(unsigned speedWanted, unsigned long distance) const {
+    speedWanted = std::min(speedWanted, getSpeed());
+    return (std::pow(getWeight(), 1.0 / 3.0) / 2)
+           * std::log10(getWeight() * speedWanted)
+           * std::log10(distance + 1.0);
 }
