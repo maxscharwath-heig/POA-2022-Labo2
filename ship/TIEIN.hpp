@@ -5,13 +5,13 @@
 
 class TIEIN : public Ship {
 public:
-   TIEIN();
+    TIEIN();
 
 private:
-   static const std::string MODEL;
-   static const unsigned long long WEIGHT;
-   static const unsigned SPEED;
-   static unsigned id;
+    static const std::string MODEL;
+    static const double WEIGHT;
+    static const unsigned SPEED;
+    static unsigned id;
 };
 
 #endif //POA___LABO_2_TIEIN_HPP

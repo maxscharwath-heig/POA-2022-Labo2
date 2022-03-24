@@ -15,16 +15,16 @@ public:
 
     unsigned getSpeed() const;
 
-    unsigned long long getWeight() const;
+    virtual double getWeight() const;
     // virtual ~Ship();
 
 protected:
-    Ship(unsigned long long weigth, unsigned speed, const std::string& model,
+    Ship(double weight, unsigned speed, const std::string& model,
          unsigned id);
 
 private:
     std::string nickName;
-    const unsigned long long weigth;
+    const double weight;
     const unsigned speed;
     const std::string model;
     const unsigned id;

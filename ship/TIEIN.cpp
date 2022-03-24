@@ -1,7 +1,7 @@
 #include "TIEIN.hpp"
 
 const std::string TIEIN::MODEL = "TIE/IN";
-const unsigned long long TIEIN::WEIGHT = 5;
+const double TIEIN::WEIGHT = 5;
 const unsigned TIEIN::SPEED = 110;
 unsigned TIEIN::id = 0;
 

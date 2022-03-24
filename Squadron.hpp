@@ -28,11 +28,14 @@ public:
 
 private:
     const std::string name;
+
     LinkedList<const Ship*> members;
+
     const Ship* leader; // can be nullptr
+
     unsigned getMaxSpeed() const;
 
-    unsigned long long getTotalWeight() const;
+    double getTotalWeight() const;
 };
 
 Squadron operator+(const Squadron& lhs, const Ship& rhs);

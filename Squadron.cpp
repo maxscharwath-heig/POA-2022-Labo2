@@ -54,8 +54,8 @@ unsigned Squadron::getMaxSpeed() const {
     return maxSpeed;
 }
 
-unsigned long long Squadron::getTotalWeight() const {
-    unsigned long long totalWeight = 0;
+double Squadron::getTotalWeight() const {
+    double totalWeight = 0;
     auto it = members.getIterator();
     while (it.hasNext()) {
         const Ship& ship = *it.next();
@@ -66,15 +66,17 @@ unsigned long long Squadron::getTotalWeight() const {
 
 std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
     os << "Squadron: " << squadron.name << std::endl
-       << "\t max speed: " << squadron.getMaxSpeed() << " MGLT" << std::endl
-       << "\t total weight: " << squadron.getTotalWeight() << " tons"
+       << "   max speed: " << squadron.getMaxSpeed() << " MGLT" << std::endl
+       << "   total weight: " << squadron.getTotalWeight() << " tons"
        << std::endl
        << "-- Leader :" << std::endl
        << *squadron.leader << std::endl
        << "-- Members :" << std::endl;
     auto it = squadron.members.getIterator();
     while (it.hasNext()) {
-        os << *it.next() << std::endl;
+        const Ship* ship = it.next();
+        if (ship == squadron.leader) continue;
+        os << *ship << std::endl;
     }
     return os;
 }

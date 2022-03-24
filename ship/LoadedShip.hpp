@@ -5,15 +5,18 @@
 
 class LoadedShip : public Ship {
 public:
-   std::ostream& toStream(std::ostream& os) const override;
+    std::ostream& toStream(std::ostream& os) const override;
 
 protected:
-   LoadedShip(unsigned long long weigth, unsigned speed, const std::string& model, unsigned id, double maxLoad,
-              double currentLoad = 0);
+    LoadedShip(double weight, unsigned speed, const std::string& model, unsigned id,
+               double maxLoad,
+               double currentLoad = 0);
 
 private:
-   const double maxLoad;
-   double currentLoad;
+    const double maxLoad;
+    double currentLoad;
+
+    double getWeight() const;
 };
 
 
