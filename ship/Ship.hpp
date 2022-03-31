@@ -18,6 +18,7 @@ public:
     double getConsumption(unsigned speedWanted, unsigned long distance) const;
 
     virtual double getWeight() const;
+
     virtual ~Ship() = default;
 
 protected:

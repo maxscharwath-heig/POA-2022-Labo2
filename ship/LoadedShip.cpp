@@ -11,9 +11,10 @@ double LoadedShip::getWeight() const {
 }
 
 std::ostream& LoadedShip::toStream(std::ostream& os) const {
-    return Ship::toStream(os) << "   cargo : "
-                              << std::fixed << std::setprecision(2) << currentLoad
-                              << " " << UNITS_WEIGHT << " (max : "
-                              << std::fixed << std::setprecision(2) << maxLoad
-                              << ")";
+    return Ship::toStream(os)
+          << "   cargo : "
+          << std::fixed << std::setprecision(2) << currentLoad
+          << " " << UNITS_WEIGHT << " (max : "
+          << std::fixed << std::setprecision(2) << maxLoad
+          << ")";
 }
