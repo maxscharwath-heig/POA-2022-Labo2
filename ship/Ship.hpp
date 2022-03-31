@@ -18,7 +18,7 @@ public:
     double getConsumption(unsigned speedWanted, unsigned long distance) const;
 
     virtual double getWeight() const;
-    // virtual ~Ship();
+    virtual ~Ship() = default;
 
 protected:
     Ship(double weight, unsigned speed, const std::string& model,

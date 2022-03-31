@@ -1,4 +1,5 @@
 #include <iomanip>
+#include <climits>
 #include "Squadron.hpp"
 #include "Constants.hpp"
 
