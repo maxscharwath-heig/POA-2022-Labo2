@@ -16,7 +16,7 @@ private:
     const double maxLoad;
     double currentLoad;
 
-    double getWeight() const;
+     double getWeight() const override;
 };
 
 
