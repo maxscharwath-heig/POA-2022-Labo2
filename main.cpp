@@ -16,7 +16,7 @@ int main() {
     squad += blackTwo;
     squad += shuttle;
     squad.setLeader(blackLeader);
-    squad.removeLeader();
+    //squad.removeLeader();
     cout << squad << endl;
 
     unsigned long distance = 1000000;
