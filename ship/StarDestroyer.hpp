@@ -16,5 +16,4 @@ private:
     static unsigned id;
 };
 
-
 #endif //POA___LABO_2_STARDESTROYER_HPP
