@@ -1,7 +1,3 @@
-//
-// Created by Maxime Scharwath on 24.03.2022.
-//
-
 #ifndef POA_LABO_2_CONSTANTS_HPP
 #define POA_LABO_2_CONSTANTS_HPP
 

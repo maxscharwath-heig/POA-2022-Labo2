@@ -2,6 +2,7 @@
 
 #include "catch.hpp"
 #include "../utility/LinkedList.cpp"
+#include "../ship/LambdaShuttle.hpp"
 
 TEST_CASE("LinkedList") {
     SECTION("LinkedList<int>") {
@@ -158,5 +159,64 @@ TEST_CASE("LinkedList") {
 }
 
 TEST_CASE("Labo2 Test") {
+    // Créations des vaisseaux
+    SECTION("Create Lambda Shuttle") {
+        // LambdaShuttle lbs(40);
+    }
 
+    SECTION("Create Star Destroyer") {
+
+    }
+
+    SECTION("Create TIELN") {
+
+    }
+
+    SECTION("Create TIEIN") {
+
+    }
+
+    SECTION("Invalid load") {
+        // LambdaShuttle lbs(85);
+    }
+
+    SECTION("Set nickname") {
+
+    }
+
+    SECTION("Create squadron") {
+
+    }
+
+    SECTION("Set squadron leader") {
+
+    }
+
+    SECTION("Add ship to squadron") {
+
+    }
+
+    SECTION("Remove ship from squadron") {
+
+    }
+
+    SECTION("Get ship at index") {
+
+    }
+
+    SECTION("Get ship at invalid index") {
+
+    }
+
+    SECTION("Get squadron consumption") {
+
+    }
+
+    SECTION("Get squadron max speed") {
+
+    }
+
+    SECTION("Get squadron total weight") {
+
+    }
 }
