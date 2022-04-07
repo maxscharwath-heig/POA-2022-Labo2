@@ -36,6 +36,8 @@ double Ship::getWeight() const {
 }
 
 double Ship::getConsumption(unsigned speedWanted, unsigned long distance) const {
+    if (speedWanted == 0 || distance == 0) return 0;
+    
     speedWanted = std::min(speedWanted, getSpeed());
     return (std::pow(getWeight(), 1.0 / 3.0) / 2.0)
            * std::log10(getWeight() * speedWanted)

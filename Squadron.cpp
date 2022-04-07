@@ -98,6 +98,8 @@ std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
 
 double Squadron::getConsumption(unsigned int speedWanted, unsigned long distance)
 const {
+    if (speedWanted == 0 || distance == 0) return 0;
+
     double consumption = 0;
     auto it = members.getIterator();
     while (it.hasNext()) {
