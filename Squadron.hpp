@@ -55,14 +55,14 @@ public:
      * @param distance distance to fly
      * @return Total fuel consumption of squadron
      */
-    double getConsumption(unsigned speedWanted, unsigned long distance) const;
+    double getConsumption(double speedWanted, double distance) const;
 
     /**
      * Calculate the max speed of a squadron. Every ship of a squadron fly at the speed
      * of the slowest ship.
      * @return Max fly speed os squadron
      */
-    unsigned getMaxSpeed() const;
+    double getMaxSpeed() const;
 
     /**
      * Calculate the total weight of a squadron

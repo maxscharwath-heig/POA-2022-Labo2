@@ -153,6 +153,5 @@ std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list) {
         }
         current = current->next;
     }
-    os << "]";
-    return os;
+    return os << "]";
 }

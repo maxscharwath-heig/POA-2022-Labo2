@@ -2,7 +2,7 @@
 #include "LoadedShip.hpp"
 #include "../Constants.hpp"
 
-LoadedShip::LoadedShip(double weight, unsigned int speed, const std::string& model,
+LoadedShip::LoadedShip(double weight, double speed, const std::string& model,
                        unsigned id, double maxLoad, double currentLoad) :
       Ship(weight, speed, model, id), maxLoad(maxLoad), currentLoad(currentLoad) {
 

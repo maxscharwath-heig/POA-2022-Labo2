@@ -16,13 +16,15 @@ int main() {
     squad += blackTwo;
     squad += shuttle;
     squad.setLeader(blackLeader);
-    //squad.removeLeader();
     cout << squad << endl;
 
-    unsigned long distance = 1000000;
-    cout << "The consumption for " << distance << " " << UNITS_DISTANCE << " "
+    double distance = 1000000;
+    cout << "The consumption for " << distance << " " << UNITS_DISTANCE << ", "
          << squad.getConsumption(squad.getMaxSpeed(), distance) << " "
          << UNITS_CONSUMPTION << " for a speed of " << squad.getMaxSpeed() << " " <<
          UNITS_SPEED <<
          endl;
+
+    squad.removeLeader();
+    cout << squad << endl;
 }

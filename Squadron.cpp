@@ -46,8 +46,8 @@ Squadron operator-(const Squadron& lhs, const Ship& rhs) {
     return result;
 }
 
-unsigned Squadron::getMaxSpeed() const {
-    unsigned maxSpeed = UINT_MAX;
+double Squadron::getMaxSpeed() const {
+    double maxSpeed = UINT_MAX;
     auto it = members.getIterator();
     if (!it.hasNext()) {
         return 0;
@@ -98,9 +98,9 @@ std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
     return os;
 }
 
-double Squadron::getConsumption(unsigned int speedWanted, unsigned long distance)
+double Squadron::getConsumption(double speedWanted, double distance)
 const {
-    if (speedWanted == 0 || distance == 0) return 0;
+    if (speedWanted <= 0 || distance <= 0) return 0;
 
     double consumption = 0;
     auto it = members.getIterator();

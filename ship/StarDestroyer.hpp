@@ -18,7 +18,7 @@ public:
 private:
     static const std::string MODEL;
     static const double WEIGHT;
-    static const unsigned SPEED;
+    static const double SPEED;
     static const double MAX_LOAD;
     static unsigned id;
 };

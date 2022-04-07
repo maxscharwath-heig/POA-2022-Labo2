@@ -33,7 +33,7 @@ public:
      * Get speed of the ship.
      * @return The speed of the ship.
      */
-    unsigned getSpeed() const;
+    double getSpeed() const;
 
     /**
      * Get the consumption of the ship.
@@ -42,7 +42,7 @@ public:
      * @warning if the speed is too high, it will be capped at the maximum speed of the ship.
      * @return The consumption of the ship.
      */
-    double getConsumption(unsigned speedWanted, unsigned long distance) const;
+    double getConsumption(double speedWanted, double distance) const;
 
     /**
      * Get the weight of the ship.
@@ -53,13 +53,13 @@ public:
     virtual ~Ship() = default;
 
 protected:
-    Ship(double weight, unsigned speed, const std::string& model,
+    Ship(double weight, double speed, const std::string& model,
          unsigned id);
 
 private:
     std::string nickName;
     const double weight;
-    const unsigned speed;
+    const double speed;
     const std::string model;
     const unsigned id;
 };
