@@ -9,6 +9,8 @@
  * @tparam T
  * @author Nicolas Crausaz
  * @author Maxime Scharwath
+ * @warning operator== needs to be implemented for T for example if T is a
+ * reference to an object
  * @date 2022-04-07
  * @version 1.0
  */

@@ -14,14 +14,6 @@ TEST_CASE("LinkedList") {
             REQUIRE(list.get(0) == 1);
             REQUIRE(list.get(1) == 2);
             REQUIRE(list.get(2) == 3);
-        }SECTION("Accessor") {
-            LinkedList<int> list;
-            list.add(1);
-            list.add(2);
-            list.add(3);
-            REQUIRE(list[0] == 1);
-            REQUIRE(list[1] == 2);
-            REQUIRE(list[2] == 3);
         }SECTION("Remove") {
             LinkedList<int> list;
             list.add(1);
@@ -74,20 +66,6 @@ TEST_CASE("LinkedList") {
             REQUIRE(list.get(2)->a == 7);
             REQUIRE(list.get(2)->b == 8);
             REQUIRE(list.get(2)->c == 9);
-        }SECTION("Accessor") {
-            LinkedList<Test*> list;
-            list.add(t1);
-            list.add(t2);
-            list.add(t3);
-            REQUIRE(list[0]->a == 1);
-            REQUIRE(list[0]->b == 2);
-            REQUIRE(list[0]->c == 3);
-            REQUIRE(list[1]->a == 4);
-            REQUIRE(list[1]->b == 5);
-            REQUIRE(list[1]->c == 6);
-            REQUIRE(list[2]->a == 7);
-            REQUIRE(list[2]->b == 8);
-            REQUIRE(list[2]->c == 9);
         }SECTION("Remove") {
             LinkedList<Test*> list;
             list.add(t1);
@@ -132,9 +110,6 @@ TEST_CASE("LinkedList") {
         REQUIRE(list.get(0) == "Hello");
         REQUIRE(list.get(1) == "World");
         REQUIRE(list.get(2) == "!");
-        REQUIRE(list[0] == "Hello");
-        REQUIRE(list[1] == "World");
-        REQUIRE(list[2] == "!");
         REQUIRE(list.contains("Hello"));
         REQUIRE(list.contains("World"));
         REQUIRE(list.contains("!"));
