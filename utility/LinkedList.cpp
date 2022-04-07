@@ -1,4 +1,3 @@
-#include <iostream>
 #include "LinkedList.hpp"
 
 template<typename T>
