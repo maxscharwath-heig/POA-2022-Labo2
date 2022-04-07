@@ -1,8 +1,9 @@
 #define CATCH_CONFIG_FAST_COMPILE
 
 #include "catch.hpp"
-#include "../utility/LinkedList.cpp"
+#include "../utility/Utils.hpp"
 #include "../ship/LambdaShuttle.hpp"
+#include "../Squadron.hpp"
 
 TEST_CASE("LinkedList") {
     SECTION("LinkedList<int>") {
@@ -136,7 +137,11 @@ TEST_CASE("LinkedList") {
 TEST_CASE("Labo2 Test") {
     // Créations des vaisseaux
     SECTION("Create Lambda Shuttle") {
-        // LambdaShuttle lbs(40);
+        Squadron s("MySquadron");
+        LambdaShuttle lbs(40);
+        lbs.setNickname("Lambda");
+        s += lbs;
+        REQUIRE(&s[0] == &lbs);
     }
 
     SECTION("Create Star Destroyer") {

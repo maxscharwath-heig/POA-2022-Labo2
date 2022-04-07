@@ -2,7 +2,7 @@
 #define POA___LABO_2_SQUADRON_HPP
 
 #include <string>
-#include "utility/LinkedList.cpp" //https://stackoverflow.com/questions/13216844/undefined-reference-to-linkedlistintpush-frontint
+#include "utility/Utils.hpp."
 #include "ship/Ship.hpp"
 
 class Squadron;
