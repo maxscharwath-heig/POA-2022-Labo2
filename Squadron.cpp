@@ -12,7 +12,7 @@ void Squadron::setLeader(const Ship& ship) {
 }
 
 const Ship& Squadron::operator[](int i) {
-    return *members[i];
+    return *members.get(i);
 }
 
 Squadron& Squadron::operator+=(const Ship& ship) {

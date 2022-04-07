@@ -1,12 +1,29 @@
-#include <iostream>
 #include "LinkedList.hpp"
 
+/**
+ * Node structure
+ * @internal
+ * @tparam T
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @date   2022-04-07
+ * @version 1.0
+ */
 template<typename T>
 struct LinkedList<T>::Node {
     T value;
     Node* next;
 };
 
+/**
+ * Class Iterator
+ * @internal
+ * @tparam T
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @date   2022-04-07
+ * @version 1.0
+ */
 template<typename T>
 class LinkedList<T>::Iterator {
 public:
@@ -14,10 +31,18 @@ public:
         this->current = head;
     }
 
+    /**
+     * @brief Checks if the iterator is at the end of the list
+     * @return
+     */
     bool hasNext() {
         return current != nullptr;
     }
 
+    /**
+     * @brief Get the current value and move the iterator to the next node
+     * @return
+     */
     T next() {
         Node* tmp = current;
         current = current->next;
@@ -114,11 +139,6 @@ void LinkedList<T>::clear() {
         head = head->next;
         delete current;
     }
-}
-
-template<typename T>
-T LinkedList<T>::operator[](int i) {
-    return get(i);
 }
 
 template<typename T>
