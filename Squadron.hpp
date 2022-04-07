@@ -7,11 +7,29 @@
 
 class Squadron;
 
+/**
+ * Add a ship to a squadron and get a copy of the updated squadron
+ * @param lhs squadron where the ship will be added
+ * @param rhs ship to add to squadron
+ * @return Copy of squadron
+ */
 Squadron operator+(const Squadron& lhs, const Ship& rhs);
 
+/**
+ * Remove a ship from a squadron and get a copy of the updated squadron
+ * @param lhs squadron where the ship will be removed
+ * @param rhs ship to remove from squadron
+ * @return Copy of squadron
+ */
 Squadron operator-(const Squadron& lhs, const Ship& rhs);
 
-
+/**
+ * Class representing a squadron of ships
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @date 2022-04-07
+ * @version 1.0
+ */
 class Squadron {
     friend std::ostream& operator<<(std::ostream& os, const Squadron& squadron);
 
