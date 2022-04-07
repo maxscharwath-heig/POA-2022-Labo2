@@ -4,6 +4,13 @@
 #include "Ship.hpp"
 #include "LoadedShip.hpp"
 
+/**
+ * Class representing a loaded Lambda Shuttle
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @date 2022-04-07
+ * @version 1.0
+ */
 class LambdaShuttle : public LoadedShip {
 public:
     explicit LambdaShuttle(double currentLoad);

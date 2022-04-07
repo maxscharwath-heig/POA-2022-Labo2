@@ -16,7 +16,9 @@ const Ship& Squadron::operator[](int i) {
 }
 
 Squadron& Squadron::operator+=(const Ship& ship) {
-    members.add(&ship);
+    if (!members.contains(&ship)) {
+        members.add(&ship);
+    }
     return *this;
 }
 

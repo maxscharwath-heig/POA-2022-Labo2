@@ -3,6 +3,13 @@
 
 #include "Ship.hpp"
 
+/**
+ * Class representing a TIE Star Fighter
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @date 2022-04-07
+ * @version 1.0
+ */
 class TIELN : public Ship {
 public:
     TIELN();

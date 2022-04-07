@@ -3,6 +3,13 @@
 
 #include "Ship.hpp"
 
+/**
+ * Class representing a TIE Interceptor
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @date 2022-04-07
+ * @version 1.0
+ */
 class TIEIN : public Ship {
 public:
     TIEIN();
