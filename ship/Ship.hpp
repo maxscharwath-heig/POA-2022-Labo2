@@ -30,6 +30,12 @@ public:
     void setNickname(const std::string& name);
 
     /**
+     * Get the name of the sjip
+     * @return name of the ship
+     */
+    const std::string& getNickname() const;
+
+    /**
      * Get speed of the ship.
      * @return The speed of the ship.
      */

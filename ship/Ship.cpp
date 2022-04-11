@@ -10,6 +10,10 @@ void Ship::setNickname(const std::string& name) {
     this->nickName = name;
 }
 
+const std::string& Ship::getNickname() const {
+    return nickName;
+}
+
 std::ostream& operator<<(std::ostream& os, const Ship& ship) {
     return ship.toStream(os);
 }

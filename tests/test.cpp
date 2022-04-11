@@ -1,9 +1,12 @@
 #define CATCH_CONFIG_FAST_COMPILE
 
+#include <iostream>
 #include "catch.hpp"
 #include "../utility/Utils.hpp"
 #include "../ship/LambdaShuttle.hpp"
 #include "../Squadron.hpp"
+#include "../ship/TIELN.hpp"
+#include "../ship/StarDestroyer.hpp"
 
 TEST_CASE("LinkedList") {
     SECTION("LinkedList<int>") {
@@ -15,7 +18,9 @@ TEST_CASE("LinkedList") {
             REQUIRE(list.get(0) == 1);
             REQUIRE(list.get(1) == 2);
             REQUIRE(list.get(2) == 3);
-        }SECTION("Remove") {
+        }
+
+        SECTION("Remove") {
             LinkedList<int> list;
             list.add(1);
             list.add(2);
@@ -23,7 +28,9 @@ TEST_CASE("LinkedList") {
             list.remove(2);
             REQUIRE(list.get(0) == 1);
             REQUIRE(list.get(1) == 3);
-        }SECTION("Clear") {
+        }
+
+        SECTION("Clear") {
             LinkedList<int> list;
             list.add(1);
             list.add(2);
@@ -32,7 +39,9 @@ TEST_CASE("LinkedList") {
             REQUIRE_THROWS(list.get(0));
             REQUIRE_THROWS(list.get(1));
             REQUIRE_THROWS(list.get(2));
-        }SECTION("Contain") {
+        }
+
+        SECTION("Contain") {
             LinkedList<int> list;
             list.add(1);
             list.add(2);
@@ -44,7 +53,9 @@ TEST_CASE("LinkedList") {
             list.remove(2);
             REQUIRE_FALSE(list.contains(2));
         }
-    }SECTION("LinkedList<Pointer>") {
+    }
+
+    SECTION("LinkedList<Pointer>") {
         struct Test {
             int a;
             int b;
@@ -67,7 +78,9 @@ TEST_CASE("LinkedList") {
             REQUIRE(list.get(2)->a == 7);
             REQUIRE(list.get(2)->b == 8);
             REQUIRE(list.get(2)->c == 9);
-        }SECTION("Remove") {
+        }
+
+        SECTION("Remove") {
             LinkedList<Test*> list;
             list.add(t1);
             list.add(t2);
@@ -79,7 +92,9 @@ TEST_CASE("LinkedList") {
             REQUIRE(list.get(1)->a == 7);
             REQUIRE(list.get(1)->b == 8);
             REQUIRE(list.get(1)->c == 9);
-        }SECTION("Clear") {
+        }
+
+        SECTION("Clear") {
             LinkedList<Test*> list;
             list.add(t1);
             list.add(t2);
@@ -88,7 +103,9 @@ TEST_CASE("LinkedList") {
             REQUIRE_THROWS(list.get(0));
             REQUIRE_THROWS(list.get(1));
             REQUIRE_THROWS(list.get(2));
-        }SECTION("Contain") {
+        }
+
+        SECTION("Contain") {
             LinkedList<Test*> list;
             list.add(t1);
             list.add(t2);
@@ -103,7 +120,9 @@ TEST_CASE("LinkedList") {
         delete t1;
         delete t2;
         delete t3;
-    }SECTION("LinkedList<const string&>") {
+    }
+
+    SECTION("LinkedList<const string&>") {
         LinkedList<const std::string&> list;
         list.add("Hello");
         list.add("World");
@@ -118,7 +137,9 @@ TEST_CASE("LinkedList") {
         REQUIRE_FALSE(list.contains("Hello World !"));
         list.remove("World");
         REQUIRE_FALSE(list.contains("World"));
-    }SECTION("Iterator") {
+    }
+
+    SECTION("Iterator") {
         LinkedList<int> list;
         list.add(1);
         list.add(2);
@@ -135,8 +156,61 @@ TEST_CASE("LinkedList") {
 }
 
 TEST_CASE("Labo2 Test") {
-    // Créations des vaisseaux
-    SECTION("Create Lambda Shuttle") {
+    SECTION("Invalid load - LambaShuttle") {
+        try {
+            LambdaShuttle lbs(85);
+        }
+        catch (const std::runtime_error&) {
+            SUCCEED("Ok");
+            return;
+        }
+        FAIL("Should throw");
+    }
+
+    SECTION("Invalid load - StarDestroyer") {
+        try {
+            LambdaShuttle lbs(250001);
+        }
+        catch (const std::runtime_error&) {
+            SUCCEED("Ok");
+            return;
+        }
+        FAIL("Should throw");
+    }
+
+    SECTION("Set nickname") {
+        TIELN test;
+        test.setNickname("Test");
+        REQUIRE(test.getNickname() == "Test");
+    }
+
+    SECTION("Create squadron") {
+        Squadron squad("Squad");
+        REQUIRE(squad.getName() == "Squad");
+    }
+
+    SECTION("Set squadron leader") {
+        Squadron squad("Squad");
+        StarDestroyer star;
+        squad.setLeader(star);
+
+        const Ship test = squad[0];
+
+        REQUIRE(&test == &star);
+    }
+
+    SECTION("Remove squadron leader") {
+        Squadron squad("Squad");
+        StarDestroyer star;
+        squad.setLeader(star);
+        squad.removeLeader();
+
+        squad.getLeader();
+
+        //REQUIRE( == nullptr);
+    }
+
+    SECTION("Add ship to squadron") {
         Squadron s("MySquadron");
         LambdaShuttle lbs(40);
         lbs.setNickname("Lambda");
@@ -144,47 +218,28 @@ TEST_CASE("Labo2 Test") {
         REQUIRE(&s[0] == &lbs);
     }
 
-    SECTION("Create Star Destroyer") {
-
-    }
-
-    SECTION("Create TIELN") {
-
-    }
-
-    SECTION("Create TIEIN") {
-
-    }
-
-    SECTION("Invalid load") {
-        // LambdaShuttle lbs(85);
-    }
-
-    SECTION("Set nickname") {
-
-    }
-
-    SECTION("Create squadron") {
-
-    }
-
-    SECTION("Set squadron leader") {
-
-    }
-
-    SECTION("Add ship to squadron") {
-
-    }
-
     SECTION("Remove ship from squadron") {
-
     }
 
     SECTION("Get ship at index") {
-
+        Squadron s("MySquadron");
+        LambdaShuttle lbs(40);
+        lbs.setNickname("Lambda");
+        s += lbs;
+        REQUIRE(&s[0] == &lbs);
     }
 
     SECTION("Get ship at invalid index") {
+        Squadron s("MySquadron");
+        try {
+            const Ship test = s[0];
+        }
+        catch (const std::out_of_range&) {
+            SUCCEED("Ok");
+            return;
+        }
+        FAIL("Should throw");
+
 
     }
 

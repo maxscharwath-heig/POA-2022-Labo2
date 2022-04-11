@@ -2,7 +2,7 @@
 #define POA___LABO_2_SQUADRON_HPP
 
 #include <string>
-#include "utility/Utils.hpp."
+#include "utility/Utils.hpp"
 #include "ship/Ship.hpp"
 
 class Squadron;
@@ -69,6 +69,18 @@ public:
      * @return Total weight of squadron
      */
     double getTotalWeight() const;
+
+    /**
+     * Get the name of squadron
+     * @return name of squadron
+     */
+    const std::string& getName() const;
+
+    /**
+     * Get the leader of squadron
+     * @return Loader of squadron
+     */
+    const Ship& getLeader() const;
 
     /**
      * Get the ship of squadron at position

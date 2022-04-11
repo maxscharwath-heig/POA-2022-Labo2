@@ -13,7 +13,7 @@
  */
 class LambdaShuttle : public LoadedShip {
 public:
-    explicit LambdaShuttle(double currentLoad);
+    explicit LambdaShuttle(double currentLoad = 0);
 
 private:
     static const std::string MODEL;

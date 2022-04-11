@@ -111,6 +111,14 @@ const {
     return consumption;
 }
 
+const std::string& Squadron::getName() const {
+    return name;
+}
+
+const Ship& Squadron::getLeader() const {
+    return *leader;
+}
+
 void Squadron::removeLeader() {
     leader = nullptr;
 }

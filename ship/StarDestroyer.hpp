@@ -13,7 +13,7 @@
  */
 class StarDestroyer : public LoadedShip {
 public:
-    explicit StarDestroyer(double currentLoad);
+    explicit StarDestroyer(double currentLoad = 0);
 
 private:
     static const std::string MODEL;
