@@ -61,6 +61,7 @@ typename LinkedList<T>::Iterator LinkedList<T>::getIterator() const {
 template<typename T>
 LinkedList<T>::LinkedList() {
     head = nullptr;
+    tail = nullptr;
 }
 
 template<typename T>
@@ -73,23 +74,27 @@ void LinkedList<T>::add(T value) {
     Node* newNode = new Node{value, nullptr};
     if (head == nullptr) {
         head = newNode;
+        tail = newNode;
     } else {
-        Node* current = head;
-        while (current->next != nullptr) {
-            current = current->next;
-        }
-        current->next = newNode;
+        tail->next = newNode;
+        tail = newNode;
     }
 }
 
 template<typename T>
 bool LinkedList<T>::remove(T value) {
-    Node* previous = nullptr;
     Node* current = head;
+    Node* previous = nullptr;
     while (current != nullptr) {
         if (current->value == value) {
-            if (previous == nullptr) {
-                head = current->next;
+            if (current == head && current == tail) {
+                head = nullptr;
+                tail = nullptr;
+            } else if (current == head) {
+                head = head->next;
+            } else if (current == tail) {
+                tail = previous;
+                tail->next = nullptr;
             } else {
                 previous->next = current->next;
             }
@@ -119,7 +124,7 @@ T LinkedList<T>::get(int index) {
     if (index < 0) {
         throw std::out_of_range("Index must be positive");
     }
-    if (head == nullptr) {
+    if (head == nullptr || tail == nullptr) {
         throw std::out_of_range("List is empty");
     }
     Node* current = head;

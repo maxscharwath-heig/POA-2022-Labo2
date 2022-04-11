@@ -38,6 +38,11 @@ private :
      */
     Node* head;
 
+    /**
+     * @brief the tail Node of the list
+     */
+    Node* tail;
+
 public:
     LinkedList();
 
