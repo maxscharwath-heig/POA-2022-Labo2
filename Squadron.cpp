@@ -11,7 +11,7 @@ void Squadron::setLeader(const Ship& ship) {
     leader = &ship;
 }
 
-const Ship& Squadron::operator[](int i) {
+const Ship& Squadron::operator[](std::size_t i) {
     return *members.get(i);
 }
 

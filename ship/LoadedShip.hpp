@@ -6,6 +6,7 @@
 class LoadedShip : public Ship {
 public:
     std::ostream& toStream(std::ostream& os) const override;
+    double getWeight() const override;
 
 protected:
     LoadedShip(double weight, double speed, const std::string& model, unsigned id,
@@ -15,8 +16,6 @@ protected:
 private:
     const double maxLoad;
     double currentLoad;
-
-    double getWeight() const override;
 };
 
 

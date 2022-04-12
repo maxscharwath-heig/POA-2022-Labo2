@@ -86,8 +86,9 @@ public:
      * Get the ship of squadron at position
      * @param i position of wanted ship
      * @return Ship at position i
+     * @throws std::out_of_range if i not in valid range
      */
-    const Ship& operator[](int i);
+    const Ship& operator[](std::size_t i);
 
     /**
      * Add a ship to a squadron. No effect if the ship is already in the squadron

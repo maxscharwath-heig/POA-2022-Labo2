@@ -120,10 +120,7 @@ bool LinkedList<T>::contains(T value) {
 }
 
 template<typename T>
-T LinkedList<T>::get(int index) {
-    if (index < 0) {
-        throw std::out_of_range("Index must be positive");
-    }
+T LinkedList<T>::get(std::size_t index) {
     if (head == nullptr || tail == nullptr) {
         throw std::out_of_range("List is empty");
     }

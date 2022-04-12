@@ -77,7 +77,7 @@ public:
      * @param index - the index of the element
      * @return the element at the given index
      */
-    T get(int index);
+    T get(std::size_t index);
 
     /**
      * @brief Get an iterator of the list
