@@ -191,10 +191,9 @@ TEST_CASE("Labo2 Test - Ships") {
         LambdaShuttle ls; // No cargo
         StarDestroyer sd; // No cargo
 
-        REQUIRE(t1.getWeight() == 6);
-        REQUIRE(t2.getWeight() == 5);
-        REQUIRE(ls.getWeight() == 360);
-        REQUIRE(sd.getWeight() == 9000000000);
+
+
+        // TODO
     }
 
     SECTION("Check weigths") {
@@ -246,7 +245,7 @@ TEST_CASE("Labo 2 - Squadron") {
 
         squad.getLeader();
 
-        //REQUIRE( == nullptr);
+        // REQUIRE(squad.getLeader() == nullptr);
     }
 
     SECTION("Add ship to squadron") {
@@ -257,7 +256,17 @@ TEST_CASE("Labo 2 - Squadron") {
         REQUIRE(&s[0] == &lbs);
     }
 
-    SECTION("Remove ship from squadron") {
+    SECTION("Remove member ship from squadron") {
+        Squadron s("MySquadron");
+        LambdaShuttle lbs;
+        s += lbs;
+        s -= lbs;
+
+        // TODO
+    }
+
+    SECTION("Remove non member ship from squadron") {
+        // TODO
     }
 
     SECTION("Get ship at index") {
@@ -281,14 +290,28 @@ TEST_CASE("Labo 2 - Squadron") {
     }
 
     SECTION("Get squadron consumption") {
-
+        Squadron s("MySquadron");
+        // s.getConsumption(20, 20);
+        // TODO
     }
 
     SECTION("Get squadron max speed") {
+        Squadron s("MySquadron");
+        LambdaShuttle lbs; // Slowest
+        TIELN tie;
+        s += lbs;
+        s += tie;
 
+        REQUIRE(s.getMaxSpeed() == lbs.getSpeed());
     }
 
     SECTION("Get squadron total weight") {
-
+        Squadron s("MySquadron");
+        LambdaShuttle lbs(40);
+        TIELN tie;
+        s += lbs;
+        s += tie;
+        const double weigth = lbs.getWeight() + tie.getWeight() + 40;
+        REQUIRE(s.getTotalWeight() == weigth);
     }
 }
