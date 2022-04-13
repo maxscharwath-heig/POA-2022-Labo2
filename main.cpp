@@ -245,9 +245,7 @@ void more_tests() {
    {
       Squadron s("MySquadron");
       LambdaShuttle lbs(40);
-      LambdaShuttle lbs2(40);
       s += lbs;
-      s += lbs2;
       Squadron s2 = s - lbs;
       std::cout << s2 << endl; // Should not be displayed
    }

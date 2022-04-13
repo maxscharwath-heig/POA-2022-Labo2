@@ -140,11 +140,15 @@ T LinkedList<T>::get(std::size_t index) {
 
 template <typename T>
 void LinkedList<T>::clear() {
-   while (head != nullptr) {
-      Node* current = head;
-      head = head->next;
+   Node* current = head;
+   Node* next;
+
+   while (current != nullptr) {
+      next = current->next;
       delete current;
+      current = next;
    }
+   head = nullptr;
 }
 
 template <typename T>
