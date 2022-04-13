@@ -7,18 +7,18 @@
  * Class representing a TIE Interceptor
  * @author Nicolas Crausaz
  * @author Maxime Scharwath
- * @date 2022-04-07
+ * @date 2022-04-13
  * @version 1.0
  */
 class TIEIN : public Ship {
 public:
-    TIEIN();
+   TIEIN();
 
 private:
-    static const std::string MODEL;
-    static const double WEIGHT;
-    static const double SPEED;
-    static unsigned id;
+   static const std::string MODEL;
+   static const double WEIGHT;
+   static const double SPEED;
+   static unsigned id;
 };
 
 #endif //POA___LABO_2_TIEIN_HPP

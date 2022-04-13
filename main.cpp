@@ -27,4 +27,8 @@ int main() {
 
     squad.removeLeader();
     cout << squad << endl;
+
+
+
+    return EXIT_SUCCESS;
 }

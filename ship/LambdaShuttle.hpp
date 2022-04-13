@@ -8,19 +8,19 @@
  * Class representing a loaded Lambda Shuttle
  * @author Nicolas Crausaz
  * @author Maxime Scharwath
- * @date 2022-04-07
+ * @date 2022-04-13
  * @version 1.0
  */
 class LambdaShuttle : public LoadedShip {
 public:
-    explicit LambdaShuttle(double currentLoad = 0);
+   explicit LambdaShuttle(double currentLoad = 0);
 
 private:
-    static const std::string MODEL;
-    static const double WEIGHT;
-    static const double SPEED;
-    static const double MAX_LOAD;
-    static unsigned id;
+   static const std::string MODEL;
+   static const double WEIGHT;
+   static const double SPEED;
+   static const double MAX_LOAD;
+   static unsigned id;
 };
 
 #endif //POA___LABO_2_LAMBDASHUTTLE_HPP

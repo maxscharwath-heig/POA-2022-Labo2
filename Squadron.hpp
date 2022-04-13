@@ -16,12 +16,28 @@ class Squadron;
 Squadron operator+(const Squadron& lhs, const Ship& rhs);
 
 /**
+ * Add a ship to a squadron and get a copy of the updated squadron
+ * @param lhs ship to add to squadron
+ * @param rhs squadron where the ship will be added
+ * @return Copy of squadron
+ */
+Squadron operator+(const Ship& lhs, const Squadron& rhs);
+
+/**
  * Remove a ship from a squadron and get a copy of the updated squadron
  * @param lhs squadron where the ship will be removed
  * @param rhs ship to remove from squadron
  * @return Copy of squadron
  */
 Squadron operator-(const Squadron& lhs, const Ship& rhs);
+
+/**
+ * Add a ship to a squadron and get a copy of the updated squadron
+ * @param lhs ship to add to squadron
+ * @param rhs squadron where the ship will be added
+ * @return Copy of squadron
+ */
+Squadron operator-(const Ship& lhs, const Squadron& rhs);
 
 /**
  * Class representing a squadron of ships
@@ -104,6 +120,12 @@ public:
      * @return the squadron
      */
     Squadron& operator-=(const Ship& ship);
+
+    /**
+     * Add a ship to squadron if not a member yet
+     * @param ship Ship to add to squadron
+     */
+    void add(const Ship& ship);
 
 private:
     const std::string name;

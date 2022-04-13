@@ -7,18 +7,18 @@
  * Class representing a TIE Star Fighter
  * @author Nicolas Crausaz
  * @author Maxime Scharwath
- * @date 2022-04-07
+ * @date 2022-04-13
  * @version 1.0
  */
 class TIELN : public Ship {
 public:
-    TIELN();
+   TIELN();
 
 private:
-    static const std::string MODEL;
-    static const double WEIGHT;
-    static const double SPEED;
-    static unsigned id;
+   static const std::string MODEL;
+   static const double WEIGHT;
+   static const double SPEED;
+   static unsigned id;
 };
 
 

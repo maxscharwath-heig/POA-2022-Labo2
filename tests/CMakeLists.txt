@@ -1,5 +1,5 @@
 SET(CMAKE_CXX_FLAGS --coverage)
-add_executable(tests test.cpp catch_main.cpp
+add_executable(tests test.cpp
         ../Squadron.hpp ../Squadron.cpp
         ../ship/Ship.hpp ../ship/Ship.cpp
         ../ship/LambdaShuttle.cpp ../ship/LambdaShuttle.hpp
