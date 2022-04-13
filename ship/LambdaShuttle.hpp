@@ -13,7 +13,13 @@
  */
 class LambdaShuttle : public LoadedShip {
 public:
-   explicit LambdaShuttle(double currentLoad = 0);
+   explicit LambdaShuttle(double currentLoad = 0, const std::string& nickName = "");
+
+   double getSpeed() const override;
+
+   double getWeight() const override;
+
+   const std::string& getModel() const override;
 
 private:
    static const std::string MODEL;

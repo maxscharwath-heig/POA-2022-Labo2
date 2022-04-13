@@ -39,7 +39,7 @@ public:
     * Get speed of the ship.
     * @return The speed of the ship.
     */
-   double getSpeed() const;
+   virtual double getSpeed() const = 0;
 
    /**
     * Get the consumption of the ship.
@@ -54,19 +54,24 @@ public:
     * Get the weight of the ship.
     * @return The weight of the ship.
     */
-   virtual double getWeight() const;
+   virtual double getWeight() const = 0;
 
+   /**
+    * Get the model of the ship
+    * @return The model of the ship
+    */
+   virtual const std::string& getModel() const = 0;
+
+   /**
+    * Destructor with default behaviour
+    */
    virtual ~Ship() = default;
 
 protected:
-   Ship(double weight, double speed, const std::string& model,
-        unsigned id);
+   explicit Ship(unsigned id, const std::string& nickame = "");
 
 private:
    std::string nickName;
-   const double weight;
-   const double speed;
-   const std::string model;
    const unsigned id;
 };
 

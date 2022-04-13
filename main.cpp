@@ -3,6 +3,7 @@
 #include "ship/LambdaShuttle.hpp"
 #include "Squadron.hpp"
 #include "Constants.hpp"
+#include "ship/StarDestroyer.hpp"
 
 using namespace std;
 
@@ -10,7 +11,10 @@ int main() {
     TIELN blackLeader;
     blackLeader.setNickname("Black leader");
     TIELN blackTwo;
+
+    StarDestroyer test;
     LambdaShuttle shuttle(23.4); // 23.4 tonnes de marchandises
+
     Squadron squad("Black Squadron");
     squad += blackLeader;
     squad += blackTwo;

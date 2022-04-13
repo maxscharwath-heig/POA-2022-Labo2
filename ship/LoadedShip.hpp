@@ -19,14 +19,11 @@ public:
    void setLoad(double load);
 
 protected:
-   LoadedShip(double weight, double speed, const std::string& model,
-              unsigned id,
-              double maxLoad,
-              double currentLoad = 0);
+   explicit LoadedShip(unsigned id, double maxLoad, double currentLoad = 0, const std::string& nickName = "");
 
 private:
-   const double maxLoad;
    double currentLoad;
+   double maxLoad;
 };
 
 
