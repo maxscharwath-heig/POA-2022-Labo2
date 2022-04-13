@@ -7,6 +7,7 @@
 #include "../Squadron.hpp"
 #include "../ship/TIELN.hpp"
 #include "../ship/StarDestroyer.hpp"
+#include "../ship/TIEIN.hpp"
 
 TEST_CASE("LinkedList") {
     SECTION("LinkedList<int>") {
@@ -155,7 +156,7 @@ TEST_CASE("LinkedList") {
     }
 }
 
-TEST_CASE("Labo2 Test") {
+TEST_CASE("Labo2 Test - Ships") {
     SECTION("Invalid load - LambaShuttle") {
         try {
             LambdaShuttle lbs(85);
@@ -184,6 +185,44 @@ TEST_CASE("Labo2 Test") {
         REQUIRE(test.getNickname() == "Test");
     }
 
+    SECTION("Check consumptions") {
+        TIELN t1;
+        TIEIN t2;
+        LambdaShuttle ls; // No cargo
+        StarDestroyer sd; // No cargo
+
+        REQUIRE(t1.getWeight() == 6);
+        REQUIRE(t2.getWeight() == 5);
+        REQUIRE(ls.getWeight() == 360);
+        REQUIRE(sd.getWeight() == 9000000000);
+    }
+
+    SECTION("Check weigths") {
+        TIELN t1;
+        TIEIN t2;
+        LambdaShuttle ls; // No cargo
+        StarDestroyer sd; // No cargo
+
+        REQUIRE(t1.getWeight() == 6);
+        REQUIRE(t2.getWeight() == 5);
+        REQUIRE(ls.getWeight() == 360);
+        REQUIRE(sd.getWeight() == 9000000000);
+    }
+
+    SECTION("Check speeds") {
+        TIELN t1;
+        TIEIN t2;
+        LambdaShuttle ls;
+        StarDestroyer sd;
+
+        REQUIRE(t1.getSpeed() == 100);
+        REQUIRE(t2.getSpeed() == 110);
+        REQUIRE(ls.getSpeed() == 54);
+        REQUIRE(sd.getSpeed() == 40);
+    }
+}
+
+TEST_CASE("Labo 2 - Squadron") {
     SECTION("Create squadron") {
         Squadron squad("Squad");
         REQUIRE(squad.getName() == "Squad");
@@ -239,8 +278,6 @@ TEST_CASE("Labo2 Test") {
             return;
         }
         FAIL("Should throw");
-
-
     }
 
     SECTION("Get squadron consumption") {
