@@ -16,6 +16,10 @@ public:
 
    double getWeight() const override;
 
+   /**
+    * Set the load weigth of Loaded ship
+    * @param load weigth of load
+    */
    void setLoad(double load);
 
 protected:

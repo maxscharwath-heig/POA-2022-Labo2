@@ -25,58 +25,6 @@ Squadron operator-(const Ship& lhs, const Squadron& rhs) {
    return operator-(rhs, lhs);
 }
 
-// Methods
-void Squadron::setLeader(const Ship& ship) {
-   add(ship);
-   leader = &ship;
-}
-
-const Ship& Squadron::operator[](std::size_t i) {
-   return *members.get(i);
-}
-
-Squadron& Squadron::operator+=(const Ship& ship) {
-   add(ship);
-   return *this;
-}
-
-Squadron& Squadron::operator-=(const Ship& ship) {
-   if (members.remove(&ship)) {
-      //if correctly removed, check if leader is removed
-      if (leader == &ship) {
-         leader = nullptr;
-      }
-   }
-   return *this;
-}
-
-Squadron::Squadron(const std::string& name) : name(name), leader(nullptr) {}
-
-double Squadron::getMaxSpeed() const {
-   double maxSpeed = UINT_MAX;
-   auto it = members.getIterator();
-   if (!it.hasNext()) {
-      return 0;
-   }
-   while (it.hasNext()) {
-      const Ship& ship = *it.next();
-      if (ship.getSpeed() < maxSpeed) {
-         maxSpeed = ship.getSpeed();
-      }
-   }
-   return maxSpeed;
-}
-
-double Squadron::getTotalWeight() const {
-   double totalWeight = 0;
-   auto it = members.getIterator();
-   while (it.hasNext()) {
-      const Ship& ship = *it.next();
-      totalWeight += ship.getWeight();
-   }
-   return totalWeight;
-}
-
 std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
    os << "Squadron: " << squadron.name << std::endl
       << "   max speed: " << std::fixed << std::setprecision(2)
@@ -106,8 +54,44 @@ std::ostream& operator<<(std::ostream& os, const Squadron& squadron) {
    return os;
 }
 
-double Squadron::getConsumption(double speedWanted, double distance)
-const {
+// Methods
+Squadron::Squadron(const std::string& name) : name(name), leader(nullptr) {}
+
+void Squadron::setLeader(const Ship& ship) {
+   add(ship);
+   leader = &ship;
+}
+
+void Squadron::removeLeader() {
+   leader = nullptr;
+}
+
+double Squadron::getMaxSpeed() const {
+   double maxSpeed = UINT_MAX;
+   auto it = members.getIterator();
+   if (!it.hasNext()) {
+      return 0;
+   }
+   while (it.hasNext()) {
+      const Ship& ship = *it.next();
+      if (ship.getSpeed() < maxSpeed) {
+         maxSpeed = ship.getSpeed();
+      }
+   }
+   return maxSpeed;
+}
+
+double Squadron::getTotalWeight() const {
+   double totalWeight = 0;
+   auto it = members.getIterator();
+   while (it.hasNext()) {
+      const Ship& ship = *it.next();
+      totalWeight += ship.getWeight();
+   }
+   return totalWeight;
+}
+
+double Squadron::getConsumption(double speedWanted, double distance) const {
    if (speedWanted <= 0 || distance <= 0) return 0;
 
    double consumption = 0;
@@ -123,12 +107,31 @@ const std::string& Squadron::getName() const {
    return name;
 }
 
+void Squadron::setName(const std::string& name) {
+   this->name = name;
+}
+
 const Ship& Squadron::getLeader() const {
    return *leader;
 }
 
-void Squadron::removeLeader() {
-   leader = nullptr;
+const Ship& Squadron::operator[](std::size_t i) {
+   return *members.get(i);
+}
+
+Squadron& Squadron::operator+=(const Ship& ship) {
+   add(ship);
+   return *this;
+}
+
+Squadron& Squadron::operator-=(const Ship& ship) {
+   if (members.remove(&ship)) {
+      // if correctly removed, check if leader is removed
+      if (leader == &ship) {
+         removeLeader();
+      }
+   }
+   return *this;
 }
 
 void Squadron::add(const Ship& ship) {

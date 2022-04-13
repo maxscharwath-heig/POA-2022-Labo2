@@ -9,7 +9,6 @@ unsigned LambdaShuttle::id = 0;
 LambdaShuttle::LambdaShuttle(double currentLoad, const std::string& nickName)
         : LoadedShip(++id, MAX_LOAD, currentLoad, nickName) {}
 
-
 double LambdaShuttle::getSpeed() const {
    return SPEED;
 }

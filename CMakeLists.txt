@@ -15,5 +15,3 @@ add_executable(POA_Labo_2
         utility/Utils.hpp
         Constants.hpp
         )
-
-add_subdirectory(tests)

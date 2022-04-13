@@ -93,6 +93,12 @@ public:
     const std::string& getName() const;
 
     /**
+     * Set the name of squadron
+     * @param name Name of squadron
+     */
+     void setName(const std::string& name);
+
+    /**
      * Get the leader of squadron
      * @return Loader of squadron
      */
@@ -128,7 +134,7 @@ public:
     void add(const Ship& ship);
 
 private:
-    const std::string name;
+    std::string name;
 
     LinkedList<const Ship*> members;
 
