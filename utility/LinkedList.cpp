@@ -149,11 +149,12 @@ void LinkedList<T>::clear() {
       current = next;
    }
    head = nullptr;
+   tail = nullptr;
 }
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list) {
-   auto current = list.head;
+   Node* current = list.head;
    os << "[";
    while (current != nullptr) {
       if (current->next != nullptr) {
